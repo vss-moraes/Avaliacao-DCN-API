@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203225314) do
+ActiveRecord::Schema.define(version: 20171204013655) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "avaliadors", force: :cascade do |t|
+    t.boolean "presidente"
+    t.boolean "interno"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cosplays", force: :cascade do |t|
     t.float "qualidade"
@@ -31,6 +44,11 @@ ActiveRecord::Schema.define(version: 20171203225314) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "inscritors", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inscritos", force: :cascade do |t|
     t.string "nome"
     t.string "personagem"
@@ -45,8 +63,11 @@ ActiveRecord::Schema.define(version: 20171203225314) do
     t.string "nome_completo"
     t.string "cpf"
     t.string "password_digest"
+    t.string "perfil_type"
+    t.integer "perfil_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["perfil_type", "perfil_id"], name: "index_usuarios_on_perfil_type_and_perfil_id"
   end
 
 end
