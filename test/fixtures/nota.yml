@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fantasia: 1.5
+  similaridade: 1.5
+  interpretacao: 1.5
+  criatividade: 1.5
+  baixo_custo: 1.5
+
+two:
+  fantasia: 1.5
+  similaridade: 1.5
+  interpretacao: 1.5
+  criatividade: 1.5
+  baixo_custo: 1.5

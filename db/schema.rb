@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204013655) do
+ActiveRecord::Schema.define(version: 20171204014956) do
 
   create_table "admins", force: :cascade do |t|
     t.string "username"
@@ -25,25 +25,6 @@ ActiveRecord::Schema.define(version: 20171204013655) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cosplays", force: :cascade do |t|
-    t.float "qualidade"
-    t.float "similaridade"
-    t.float "interpretacao"
-    t.float "criatividade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cospobres", force: :cascade do |t|
-    t.float "baixo_custo"
-    t.float "fantasia"
-    t.float "personagem"
-    t.float "interpretacao"
-    t.float "criatividade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "inscritors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,11 +33,19 @@ ActiveRecord::Schema.define(version: 20171204013655) do
   create_table "inscritos", force: :cascade do |t|
     t.string "nome"
     t.string "personagem"
-    t.string "inscricao_type"
-    t.integer "inscricao_id"
+    t.string "categoria"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["inscricao_type", "inscricao_id"], name: "index_inscritos_on_inscricao_type_and_inscricao_id"
+  end
+
+  create_table "nota", force: :cascade do |t|
+    t.float "fantasia"
+    t.float "similaridade"
+    t.float "interpretacao"
+    t.float "criatividade"
+    t.float "baixo_custo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "usuarios", force: :cascade do |t|

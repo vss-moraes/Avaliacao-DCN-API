@@ -1,3 +1,4 @@
 class Inscrito < ApplicationRecord
-  belongs_to :inscricao, polymorphic: true
+  has_many :notas
+  has_many :notas, through: :avaliadors
 end
