@@ -44,8 +44,12 @@ ActiveRecord::Schema.define(version: 20171204014956) do
     t.float "interpretacao"
     t.float "criatividade"
     t.float "baixo_custo"
+    t.integer "inscrito_id"
+    t.integer "avaliador_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["avaliador_id"], name: "index_nota_on_avaliador_id"
+    t.index ["inscrito_id"], name: "index_nota_on_inscrito_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
