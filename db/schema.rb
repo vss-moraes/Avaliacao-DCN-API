@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202160052) do
+ActiveRecord::Schema.define(version: 20171203225314) do
 
   create_table "cosplays", force: :cascade do |t|
     t.float "qualidade"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20171202160052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["inscricao_type", "inscricao_id"], name: "index_inscritos_on_inscricao_type_and_inscricao_id"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "nome_completo"
+    t.string "cpf"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
