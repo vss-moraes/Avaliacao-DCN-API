@@ -39,6 +39,12 @@ class InscritosController < ApplicationController
     @inscrito.destroy
   end
 
+  # GET /inscritos/:categoria
+  def type
+    @inscritos = Inscrito.where("categoria = ?", params[:categoria])
+    render json: @inscritos
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inscrito
