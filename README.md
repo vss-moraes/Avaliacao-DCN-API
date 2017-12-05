@@ -28,9 +28,7 @@ $ rails server
 
 Será criado um Avaliador com **cpf**: 12345678910 e **password**: 123456
 
-## Utilização
-
-### Endpoints
+# Endpoints
 Todos os endpoints, exceto o de autenticação, só podem ser acessados com o token de acesso enviado na Header da request
 
 ```JSON
@@ -39,7 +37,7 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 }
 ```
 
-#### POST /authenticate
+## POST /authenticate
 
 **Descrição**: Gera um token de autenticação para o usuário através de CPF e senha
 
@@ -56,12 +54,12 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 {"auth_token": "{token}"}
 ```
 
-#### GET /inscritos
+## GET /inscritos
 
 **Descrição**: Retorna a lista de todos os inscritos
 **Restrições**: Avaliadores e Reponsáveis pelas inscrições
 
-#### POST /inscritos
+## POST /inscritos
 
 **Descrição**: Cria um novo inscrito
 **Restrições**: Responsáveis pelas inscrições
@@ -79,7 +77,7 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 ```JSON
 ```
 
-#### GET /inscritos/:id
+## GET /inscritos/:id
 **Descrição**: Retorna um inscrito de acordo com seu :id
 
 **Restrições**: Avaliadores e Reponsáveis pelas inscrições
@@ -102,22 +100,22 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 ```JSON
 ```
 
-#### GET /inscritos/:categoria
+## GET /inscritos/:categoria
 **Descrição**: Retorna todos os inscritos de uma determinada categoria (Cosplay ou Cospobre)
 
 **Restrições**: Avaliadores e Reponsáveis pelas inscrições
 
-#### DELETE /inscritos/:id
+## DELETE /inscritos/:id
 **Descrição**: Deleta um inscrito de acordo com seu :id
 
 **Restrições**: Avaliadores e Reponsáveis pelas inscrições
 
-#### GET /inscritos/:inscrito_id/notas
+## GET /inscritos/:inscrito_id/notas
 **Descrição**: Retorna a lista de notas de um inscrito
 
 **Restrições**: Avaliadores
 
-#### POST /inscritos/:inscrito_id/notas
+## POST /inscritos/:inscrito_id/notas
 **Descrição**: Envia as notas dadas ao inscrito pelo Avaliador logado
 
 **Restrições**: Avaliadores
@@ -145,7 +143,7 @@ Cospobre:
 ```JSON
 ```
 
-#### PATCH/PUT /notas/:id
+## PATCH/PUT /notas/:id
 **Descrição**: Edita as notas de acordo com o :id da avaliação
 
 **Restrições**: Avaliadores
@@ -173,7 +171,7 @@ Cospobre:
 ```JSON
 ```
 
-#### DELETE /notas/:id
+## DELETE /notas/:id
 **Descrição**: Deleta uma avaliação de acordo com o :id
 
 **Restrições**: Presidente da comissão
