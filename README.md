@@ -57,11 +57,13 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 ## GET /inscritos
 
 **Descrição**: Retorna a lista de todos os inscritos
+
 **Restrições**: Avaliadores e Reponsáveis pelas inscrições
 
 ## POST /inscritos
 
 **Descrição**: Cria um novo inscrito
+
 **Restrições**: Responsáveis pelas inscrições
 
 **Parâmetros**
