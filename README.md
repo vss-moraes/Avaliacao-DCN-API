@@ -1,24 +1,45 @@
-# README
+# Avaliação DCN API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Descrição do projeto
 
-Things you may want to cover:
+https://goo.gl/N6UuCK
 
-* Ruby version
+## Tecnologias Utilizadas
 
-* System dependencies
+Ruby: 2.4.1
 
-* Configuration
+Rails: 5.1.4
 
-* Database creation
+## Instruções
 
-* Database initialization
+Instalação do Rails: http://installrails.com/
 
-* How to run the test suite
+### Execução do projeto
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+```bash
+$ git clone https://github.com/vss-moraes/Avaliacao-DCN-API.git
+$ cd Avaliacao-DCN-API
+$ rails db:migrate
+$ rails db:seed
+$ rails server
+```
 
-* ...
+Será criado um Avaliador com **cpf**: 12345678910 e **password**: 123456
+
+### Utilização
+
+#### Endpoints (Todos os dados devem ser enviados em JSON)
+
+| Verbo | Caminho | Dados | Retorno |
+|-------|---------|-------|---------|
+|**POST**|/authenticate|cpf, password|Token de autenticação|
+|**POST**|/inscritos|nome_completo, personagem, categoria|Criação do inscrito|
+|**GET**|/inscritos||Lista de todos os inscritos|
+|**POST**|/inscritos/:inscrito_id/notas|Notas de acordo com a categoria (Cosplay/Cospobre)||
+|**GET**|/inscritos/:inscrito_id/notas||Notas do inscrito|
+
+##### Observações
+
+* Para acessar as rotas que requerem autenticação, é necessário enviar o token gerado por /authenticate nos headers da request
+* Outros endpoints, apesar de implementados, ainda não estão funcionando corretamente
