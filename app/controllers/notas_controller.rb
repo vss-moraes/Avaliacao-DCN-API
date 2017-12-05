@@ -1,8 +1,9 @@
 class NotasController < ApplicationController
-  before_action :set_inscrito, only: [:show, :create, :update, :destroy]
+  before_action :set_inscrito, only: [:index, :create]
+  before_action :set_nota, only: [:update, :destroy]
 
   # GET /inscritos/:inscrito_id/notas
-  def show
+  def index
     render json: @inscrito.notas
   end
 
@@ -18,9 +19,27 @@ class NotasController < ApplicationController
     end
   end
 
+  # PATCH/PUT /notas/:id
+  def update
+    if @nota.update(nota_params)
+      render json: @nota, status: :created
+    else
+      render json: @nota.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /notas/:id
+  def destroy
+    @nota.destroy
+  end
+
   private
     def set_inscrito
       @inscrito = Inscrito.find(params[:inscrito_id])
+    end
+
+    def set_nota
+      @nota = Nota.find(params[:id])
     end
 
     def nota_params

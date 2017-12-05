@@ -20,6 +20,7 @@ Instalação do Rails: http://installrails.com/
 ```bash
 $ git clone https://github.com/vss-moraes/Avaliacao-DCN-API.git
 $ cd Avaliacao-DCN-API
+$ bundle install
 $ rails db:migrate
 $ rails db:seed
 $ rails server
