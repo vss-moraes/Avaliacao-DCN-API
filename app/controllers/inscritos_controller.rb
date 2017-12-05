@@ -1,5 +1,6 @@
 class InscritosController < ApplicationController
   before_action :set_inscrito, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request
 
   # GET /inscritos
   def index
@@ -18,7 +19,7 @@ class InscritosController < ApplicationController
     @inscrito = Inscrito.new(inscrito_params)
 
     if @inscrito.save
-      render json: @inscrito, status: :created, location: @inscrito
+      render json: @inscrito, status: :created
     else
       render json: @inscrito.errors, status: :unprocessable_entity
     end
@@ -46,6 +47,6 @@ class InscritosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def inscrito_params
-      params.fetch(:inscrito, {})
+      params.require(:inscrito).permit(:nome, :personagem, :categoria)
     end
 end

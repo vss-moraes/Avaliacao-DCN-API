@@ -1,16 +1,18 @@
 class AvaliadorsController < ApplicationController
   before_action :set_avaliador, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_request
 
   # GET /avaliadors
   def index
     @avaliadors = Avaliador.all
 
-    render json: @avaliadors
+    render json: @avaliadors.to_json(include: :usuario)
   end
 
   # GET /avaliadors/1
   def show
-    render json: @avaliador
+    render json: @avaliador.to_json(include: :usuario)
+    # render json: @avaliador
   end
 
   # POST /avaliadors
