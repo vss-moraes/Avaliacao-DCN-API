@@ -131,7 +131,7 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 ```JSON
 ```
 
-## GET /inscritos/:categoria
+## GET /categoria/:categoria
 **Descrição**: Retorna todos os inscritos de uma determinada categoria (Cosplay ou Cospobre)
 
 **Restrições**: Avaliadores e Reponsáveis pelas inscrições
@@ -216,7 +216,7 @@ Cospobre:
 ```JSON
 // Avaliador
 {
-  "usuario": 
+  "usuario":
   {
     "cpf": string,
     "nome_completo": string,
@@ -253,7 +253,7 @@ Cospobre:
 ```JSON
 // Avaliador
 {
-  "usuario": 
+  "usuario":
   {
     "cpf": string,
     "nome_completo": string,

@@ -2,12 +2,18 @@ class NotasController < ApplicationController
   before_action :set_inscrito, only: [:index, :create]
   before_action :set_nota, only: [:update, :destroy]
 
-  before_action only: [:create, :update, :index] do
+  before_action only: [:create, :update, :index, :index_avaliador] do
     access_permission(%w(Avaliador Admin))
   end
 
   before_action only: [:destroy] do
     access_permission(%w(Admin))
+  end
+
+  # GET /avaliadors/:avaliador_id/notas
+  def index_avaliador
+    @avaliador = Avaliador.find(params[:avaliador_id])
+    render json: @avaliador.notas
   end
 
   # GET /inscritos/:inscrito_id/notas
