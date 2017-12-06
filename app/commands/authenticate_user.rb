@@ -7,7 +7,7 @@ class AuthenticateUser
   end
 
   def call
-    JsonWebToken.encode(usuario_id: usuario.id) if usuario
+    JsonWebToken::encode(usuario_id: usuario.id) if usuario
   end
 
   private
