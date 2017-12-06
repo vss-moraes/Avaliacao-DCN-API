@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   end
   resources :notas, only: [:update, :destroy]
 
-  resources :usuarios, only: [:create, :update, :destroy]
+  resources :usuarios, only: [:index, :create, :update, :destroy]
 end

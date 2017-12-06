@@ -1,6 +1,14 @@
 class InscritosController < ApplicationController
   before_action :set_inscrito, only: [:show, :update, :destroy]
 
+  before_action only: [:index, :show] do
+    access_permission(%w(Avaliador Inscritor Admin))
+  end
+
+  before_action only: [:create, :update, :destroy] do
+    access_permission(%w(Inscritor Admin))
+  end
+
   # GET /inscritos
   def index
     @inscritos = Inscrito.all

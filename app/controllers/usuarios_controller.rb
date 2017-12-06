@@ -1,6 +1,16 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:update, :destroy]
 
+  before_action do
+    access_permission(%w(Admin))
+  end
+
+  # GET /usuarios
+  def index
+    @usuarios = Usuaio.all
+    render json: @usuarios
+  end
+
   # POST /usuarios
   def create
     @usuario = Usuario.new(usuario_params)
