@@ -1,5 +1,31 @@
 # Avaliação DCN API
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Avaliação DCN API](#avaliao-dcn-api)
+	- [Descrição do projeto](#descrio-do-projeto)
+	- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instruções](#instrues)
+	- [Execução do projeto](#execuo-do-projeto)
+- [Endpoints](#endpoints)
+	- [POST /authenticate](#post-authenticate)
+	- [GET /inscritos](#get-inscritos)
+	- [POST /inscritos](#post-inscritos)
+	- [GET /inscritos/:id](#get-inscritosid)
+	- [PATCH/PUT /inscritos/:id](#patchput-inscritosid)
+	- [GET /inscritos/:categoria](#get-inscritoscategoria)
+	- [DELETE /inscritos/:id](#delete-inscritosid)
+	- [GET /inscritos/:inscrito_id/notas](#get-inscritosinscritoidnotas)
+	- [POST /inscritos/:inscrito_id/notas](#post-inscritosinscritoidnotas)
+	- [PATCH/PUT /notas/:id](#patchput-notasid)
+	- [DELETE /notas/:id](#delete-notasid)
+	- [POST /usuarios](#post-usuarios)
+	- [PATCH/PUT /usuarios/:id](#patchput-usuariosid)
+	- [DELETE /usuarios/:id](#delete-usuariosid)
+- [TODO](#todo)
+
+<!-- /TOC -->
+
 ## Descrição do projeto
 
 https://goo.gl/N6UuCK
@@ -21,7 +47,7 @@ Instalação do Rails: http://installrails.com/
 $ git clone https://github.com/vss-moraes/Avaliacao-DCN-API.git
 $ cd Avaliacao-DCN-API
 $ bundle install
-$ rails db:migrate
+$ rails db:schema:load
 $ rails db:seed
 $ rails server
 ```
@@ -41,7 +67,7 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 
 **Descrição**: Gera um token de autenticação para o usuário através de CPF e senha
 
-**Parâmetros**
+**Parâmetros**:
 ```JSON
 {
   "cpf": string,
@@ -66,7 +92,7 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 
 **Restrições**: Responsáveis pelas inscrições
 
-**Parâmetros**
+**Parâmetros**:
 ```JSON
 {
   "nome": string,
@@ -84,12 +110,12 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 
 **Restrições**: Avaliadores e Reponsáveis pelas inscrições
 
-#### PATCH/PUT /inscritos/:id
+## PATCH/PUT /inscritos/:id
 **Descrição**: Edita um inscrito de acordo com seu :id
 
 **Restrições**: Reponsáveis pelas inscrições
 
-**Parâmetros**
+**Parâmetros**:
 ```JSON
 {
   "nome": string,
@@ -122,7 +148,7 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 
 **Restrições**: Avaliadores
 
-**Parâmetros**
+**Parâmetros**:
 ```JSON
 Cosplay:
 {
@@ -150,7 +176,7 @@ Cospobre:
 
 **Restrições**: Avaliadores
 
-**Parâmetros**
+**Parâmetros**:
 ```JSON
 Cosplay:
 {
@@ -178,6 +204,82 @@ Cospobre:
 
 **Restrições**: Presidente da comissão
 
+## POST /usuarios
+**Descrição**: Cria um novo usuário com um de dois tipos: Avaliador ou Inscritor
+
+**Restrições**: Administrador
+
+**Parâmetros**:
+```JSON
+// Avaliador
+{
+  "usuario": {
+		"cpf": string,
+		"nome_completo": string,
+		"password": string,
+		"password_confirmation": string,
+		"perfil_type":"Avaliador",
+		"perfil_attributes": {
+  			"presidente": boolean,
+  			"interno": boolean
+  	}
+	}
+}
+
+// Inscritor
+{
+	"usuario":
+	{
+    "cpf": string,
+		"nome_completo": string,
+		"password": string,
+		"password_confirmation": string,
+		"perfil_type":"Inscritor",
+		"perfil_attributes": {}
+	}
+}
+```
+
+## PATCH/PUT /usuarios/:id
+**Descrição**: Edita um usuário de acordo com seu :id
+
+**Restrições**: Administrador
+
+**Parâmetros**:
+```JSON
+// Avaliador
+{
+  "usuario": {
+		"cpf": string,
+		"nome_completo": string,
+		"password": string,
+		"password_confirmation": string,
+		"perfil_type":"Avaliador",
+		"perfil_attributes": {
+  			"presidente": boolean,
+  			"interno": boolean
+  	}
+	}
+}
+
+// Inscritor
+{
+	"usuario":
+	{
+    "cpf": string,
+		"nome_completo": string,
+		"password": string,
+		"password_confirmation": string,
+		"perfil_type":"Inscritor",
+		"perfil_attributes": {}
+	}
+}
+```
+
+## DELETE /usuarios/:id
+**Descrição**: Deleta um usuário de acordo com o :id
+
+**Restrições**: Administrador
 
 # TODO
 
