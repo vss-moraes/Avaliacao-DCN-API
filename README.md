@@ -216,30 +216,31 @@ Cospobre:
 ```JSON
 // Avaliador
 {
-  "usuario": {
-		"cpf": string,
-		"nome_completo": string,
-		"password": string,
-		"password_confirmation": string,
-		"perfil_type":"Avaliador",
-		"perfil_attributes": {
-  			"presidente": boolean,
-  			"interno": boolean
-  	}
-	}
+  "usuario": 
+  {
+    "cpf": string,
+    "nome_completo": string,
+    "password": string,
+    "password_confirmation": string,
+    "perfil_type":"Avaliador",
+    "perfil_attributes": {
+      "presidente": boolean,
+      "interno": boolean
+    }
+  }
 }
 
 // Inscritor
 {
-	"usuario":
-	{
+  "usuario":
+  {
     "cpf": string,
-		"nome_completo": string,
-		"password": string,
-		"password_confirmation": string,
-		"perfil_type":"Inscritor",
-		"perfil_attributes": {}
-	}
+    "nome_completo": string,
+    "password": string,
+    "password_confirmation": string,
+    "perfil_type":"Inscritor",
+    "perfil_attributes": {}
+  }
 }
 ```
 
@@ -252,30 +253,31 @@ Cospobre:
 ```JSON
 // Avaliador
 {
-  "usuario": {
-		"cpf": string,
-		"nome_completo": string,
-		"password": string,
-		"password_confirmation": string,
-		"perfil_type":"Avaliador",
-		"perfil_attributes": {
-  			"presidente": boolean,
-  			"interno": boolean
-  	}
-	}
+  "usuario": 
+  {
+    "cpf": string,
+    "nome_completo": string,
+    "password": string,
+    "password_confirmation": string,
+    "perfil_type":"Avaliador",
+    "perfil_attributes": {
+      "presidente": boolean,
+      "interno": boolean
+    }
+  }
 }
 
 // Inscritor
 {
-	"usuario":
-	{
+  "usuario":
+  {
     "cpf": string,
-		"nome_completo": string,
-		"password": string,
-		"password_confirmation": string,
-		"perfil_type":"Inscritor",
-		"perfil_attributes": {}
-	}
+    "nome_completo": string,
+    "password": string,
+    "password_confirmation": string,
+    "perfil_type":"Inscritor",
+    "perfil_attributes": {}
+  }
 }
 ```
 
