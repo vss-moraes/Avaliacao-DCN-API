@@ -52,7 +52,10 @@ $ rails db:seed
 $ rails server
 ```
 
-Será criado um Avaliador com **cpf**: 12345678910 e **password**: 123456
+Serão criados:
+* Avaliador com **cpf**: 12345678910 e **password**: 123456
+* Inscritor com **cpf**: 12345678911 e **password**: 123456
+* 10 Inscritos
 
 # Endpoints
 Todos os endpoints, exceto o de autenticação, só podem ser acessados com o token de acesso enviado na Header da request

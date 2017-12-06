@@ -1,6 +1,5 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:update, :destroy]
-  skip_before_action :authenticate_request
 
   # POST /usuarios
   def create
