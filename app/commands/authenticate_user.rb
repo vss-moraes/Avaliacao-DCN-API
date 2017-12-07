@@ -10,8 +10,8 @@ class AuthenticateUser
     JsonWebToken::encode(usuario_id: usuario.id) if usuario
   end
 
-  private
-    attr_accessor :cpf, :password
+  # private
+     attr_accessor :cpf, :password
 
     def usuario
       usuario = Usuario.find_by_cpf(cpf)

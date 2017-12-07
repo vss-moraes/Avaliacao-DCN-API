@@ -32,7 +32,7 @@ class UsuariosController < ApplicationController
       cpf: @current_user.cpf,
       perfil_type: @current_user.perfil.class.name
     }
-    render json: usuario
+    render json: {usuario: usuario}
   end
 
   # POST /usuarios
