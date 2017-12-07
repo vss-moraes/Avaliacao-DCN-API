@@ -1,7 +1,11 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:update, :destroy]
 
-  before_action do
+  before_action only: [:show] do
+    access_permission(%w(Admin Avaliador Inscritor))
+  end
+
+  before_action only: [:index, :create, :update, :destroy] do
     access_permission(%w(Admin))
   end
 
@@ -18,6 +22,17 @@ class UsuariosController < ApplicationController
       })
     end
     render json: usuarios_json
+  end
+
+  # GET /usuario_atual
+  def show
+    usuario = {
+      id: @current_user.id,
+      nome: @current_user.nome_completo,
+      cpf: @current_user.cpf,
+      perfil_type: @current_user.perfil.class.name
+    }
+    render json: usuario
   end
 
   # POST /usuarios

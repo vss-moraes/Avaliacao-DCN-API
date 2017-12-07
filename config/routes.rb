@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/avaliadors/:avaliador_id/notas', to: 'notas#index_avaliador'
   get 'categoria/:categoria', to: 'inscritos#type'
+  get '/usuario_atual', to: 'usuarios#show'
 
   resources :inscritos do
     resources :notas, only: [:index, :create]
