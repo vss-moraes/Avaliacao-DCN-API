@@ -8,7 +8,16 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   def index
     @usuarios = Usuario.all
-    render json: @usuarios
+    usuarios_json = []
+    @usuarios.each do |usuario|
+      usuarios_json.append({
+        id: usuario.id,
+        nome: usuario.nome_completo,
+        cpf: usuario.cpf,
+        perfil_type: usuario.perfil.class.name
+      })
+    end
+    render json: usuarios_json
   end
 
   # POST /usuarios
