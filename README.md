@@ -13,12 +13,14 @@
 	- [POST /inscritos](#post-inscritos)
 	- [GET /inscritos/:id](#get-inscritosid)
 	- [PATCH/PUT /inscritos/:id](#patchput-inscritosid)
-	- [GET /inscritos/:categoria](#get-inscritoscategoria)
+	- [GET /categoria/:categoria](#get-categoriacategoria)
 	- [DELETE /inscritos/:id](#delete-inscritosid)
+	- [GET /avaliadors/:avaliador_id/notas](#get-avaliadorsavaliadoridnotas)
 	- [GET /inscritos/:inscrito_id/notas](#get-inscritosinscritoidnotas)
 	- [POST /inscritos/:inscrito_id/notas](#post-inscritosinscritoidnotas)
 	- [PATCH/PUT /notas/:id](#patchput-notasid)
 	- [DELETE /notas/:id](#delete-notasid)
+	- [GET /usuarios](#get-usuarios)
 	- [POST /usuarios](#post-usuarios)
 	- [PATCH/PUT /usuarios/:id](#patchput-usuariosid)
 	- [DELETE /usuarios/:id](#delete-usuariosid)
@@ -139,7 +141,12 @@ Todos os endpoints, exceto o de autenticação, só podem ser acessados com o to
 ## DELETE /inscritos/:id
 **Descrição**: Deleta um inscrito de acordo com seu :id
 
-**Restrições**: Avaliadores e Reponsáveis pelas inscrições
+**Restrições**: Reponsáveis pelas inscrições
+
+## GET /avaliadors/:avaliador_id/notas
+**Descrição**: Retorna a lista de notas dadas por um avaliador
+
+**Restrições**: Avaliadores
 
 ## GET /inscritos/:inscrito_id/notas
 **Descrição**: Retorna a lista de notas de um inscrito
@@ -206,6 +213,11 @@ Cospobre:
 **Descrição**: Deleta uma avaliação de acordo com o :id
 
 **Restrições**: Presidente da comissão
+
+## GET /usuarios
+**Descrição**: Retorna a lista de todos os usuários cadastrados
+
+**Restrições**: Administrador
 
 ## POST /usuarios
 **Descrição**: Cria um novo usuário com um de dois tipos: Avaliador ou Inscritor
