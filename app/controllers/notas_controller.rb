@@ -24,7 +24,7 @@ class NotasController < ApplicationController
   # POST /inscritos/:inscrito_id/notas
   def create
     @nota = @inscrito.notas.build(nota_params)
-    @nota.avaliador = Avaliador.find(@current_user.perfil_id)
+    @nota.avaliador = Avaliador.find(@current_user.perfil.id)
 
     if @nota.save
       render json: @nota, status: :created
